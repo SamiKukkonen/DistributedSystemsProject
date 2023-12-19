@@ -1,0 +1,16 @@
+image: maven:latest
+
+variables:
+  MAVEN_CLI_OPTS: ""
+  MAVEN_OPTS: ""
+
+
+stages:          # List of stages for jobs, and their order of execution
+  - build
+
+Build:       # This job runs in the build stage, which runs first.
+  stage: build
+  script:
+    - echo "Compiling the code..."
+    - mvn $MAVEN_CLI_OPTS compile
+    - echo "Compile complete."
